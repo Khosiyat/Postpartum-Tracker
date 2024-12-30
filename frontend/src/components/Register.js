@@ -1,26 +1,30 @@
 import React, { useState } from 'react';
 import axios from 'axios';
+import { useNavigate } from 'react-router-dom'; // Import useNavigate for programmatic navigation
 
-const RegisterForm = ({ setIsRegistered }) => {
+const Register = () => {
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
     const [confirmPassword, setConfirmPassword] = useState('');
+    const navigate = useNavigate(); // Used for navigation after successful registration
 
     const handleRegister = async (e) => {
         e.preventDefault();
-        
+
         if (password !== confirmPassword) {
             alert('Passwords do not match!');
             return;
         }
 
         try {
+            // API call to register the user
             const response = await axios.post('http://127.0.0.1:8000/api/register/', {
                 username,
                 password,
             });
-            alert('Registration successful! You can now login.');
-            setIsRegistered(true); // Set the state to show the login form
+            alert('Registration successful! Please log in.');
+            // Redirect to login page after successful registration
+            navigate('/login');
         } catch (error) {
             console.error('Registration failed:', error);
             alert('Registration failed. Please try again.');
@@ -58,4 +62,4 @@ const RegisterForm = ({ setIsRegistered }) => {
     );
 };
 
-export default RegisterForm;
+export default Register;
