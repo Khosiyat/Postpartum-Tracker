@@ -6,6 +6,18 @@ from rest_framework_simplejwt.tokens import RefreshToken
 
 from rest_framework import status
 
+from rest_framework.permissions import IsAdminUser
+
+
+class ListUsersView(APIView):
+    permission_classes = [IsAdminUser]  # Only admin users can access this endpoint
+
+    def get(self, request):
+        users = User.objects.all()
+        users_data = [{"id": user.id, "username": user.username} for user in users]
+        return Response(users_data, status=status.HTTP_200_OK)
+
+
 # class RegisterUserView(APIView):
 #     def post(self, request):
 #         username = request.data.get('username')
