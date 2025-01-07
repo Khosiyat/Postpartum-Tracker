@@ -17,26 +17,6 @@ class ListUsersView(APIView):
         users_data = [{"id": user.id, "username": user.username} for user in users]
         return Response(users_data, status=status.HTTP_200_OK)
 
-
-# class RegisterUserView(APIView):
-#     def post(self, request):
-#         username = request.data.get('username')
-#         password = request.data.get('password')
-#         user = User.objects.create_user(username=username, password=password)
-#         return Response({"message": "User created successfully!"})
-
-
-# class RegisterUserView(APIView):
-#     def post(self, request):
-#         username = request.data.get('username')
-#         password = request.data.get('password')
-#         if User.objects.filter(username=username).exists():
-#             return Response({"error": "Username already taken"}, status=400)
-#         user = User.objects.create_user(username=username, password=password)
-#         return Response({"message": "User registered successfully!"}, status=201)
-
-
-
 class RegisterUserView(APIView):
     def post(self, request):
         username = request.data.get('username')
