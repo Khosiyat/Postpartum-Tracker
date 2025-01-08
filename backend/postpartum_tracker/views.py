@@ -43,3 +43,17 @@ class LoginUserView(APIView):
 
 
 
+from rest_framework.decorators import api_view 
+
+
+@api_view(['POST', 'GET'])
+def postpartum_data(request):
+    if request.method == 'GET':
+        # Handle GET request (e.g., return existing data)
+        data = []  # Replace with actual queryset data
+        return Response(data, status=status.HTTP_200_OK)
+    elif request.method == 'POST':
+        # Handle POST request (e.g., save new data)
+        received_data = request.data
+        # Validate and save data here
+        return Response({"message": "Data submitted successfully"}, status=status.HTTP_201_CREATED)

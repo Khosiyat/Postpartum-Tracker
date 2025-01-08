@@ -15,8 +15,9 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from .views import RegisterUserView, ListUsersView
+from .views import RegisterUserView, ListUsersView, postpartum_data
 from rest_framework_simplejwt.views import TokenObtainPairView, TokenRefreshView
+from django.urls import path, include
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -24,5 +25,6 @@ urlpatterns = [
     path('api/users/', ListUsersView.as_view(), name='list_users'),
     path('api/token/', TokenObtainPairView.as_view(), name='token_obtain_pair'),
     path('api/token/refresh/', TokenRefreshView.as_view(), name='token_refresh'),
+    path('api/postpartum-data/', postpartum_data, name='postpartum_data'),
     ]
 
