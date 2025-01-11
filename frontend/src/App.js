@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { BrowserRouter as Router, Route, Routes, Navigate } from 'react-router-dom';
 import Login from './components/Login';
@@ -25,9 +24,9 @@ function App() {
 
     return (
         <Router>
-            <div>
-                <h1>Postpartum Tracker</h1>
-                <nav>
+            <div style={{ margin: '20px' }}>
+                <h1 style={{ textAlign: 'center' }}>Postpartum Tracker</h1>
+                <nav style={{ textAlign: 'center', marginBottom: '20px' }}>
                     <a href="/">Register</a> | 
                     <a href="/login">Login</a> | 
                     {token && <a href="/dashboard">Dashboard</a>}
