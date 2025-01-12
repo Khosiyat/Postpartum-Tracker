@@ -3,7 +3,7 @@ import React from 'react';
 const PostpartumTable = ({ data }) => {
     return (
         <div style={{ padding: '20px' }}>
-            <h2>Postpartum Data</h2>
+            <h2>Postpartum Data About Newborn Baby</h2>
             <table style={{ width: '100%', borderCollapse: 'collapse', marginTop: '20px' }}>
                 <thead>
                     <tr style={{ backgroundColor: '#f2f2f2', borderBottom: '2px solid #ddd' }}>
